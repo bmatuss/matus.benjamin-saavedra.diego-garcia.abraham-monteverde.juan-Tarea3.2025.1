@@ -1,0 +1,60 @@
+# Compiled object files
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Compiled Static libraries
+*.a
+*.lib
+
+# Executable files
+*.exe
+*.out
+*.app
+
+# Qt build directories
+build-*/
+debug/
+release/
+
+# Qt Creator files
+*.pro.user
+*.qbs.user
+*.pro.user.*
+*.qbs.user.*
+*.autosave
+
+# Qt Creator backup files
+*.bak
+
+# Qt Creator crash reports
+*.dmp
+
+# Qt generated files
+moc_*.cpp
+moc_*.h
+ui_*.h
+qrc_*.cpp
+
+# CMake build directories
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# Other generated files
+*.log
+
+# User-specific files
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
