@@ -18,7 +18,7 @@ class Follower : public Subscriber{
             cout<< getName() << " " << topic << " " << message << endl;
         }
 
-}
+};
 
 
 

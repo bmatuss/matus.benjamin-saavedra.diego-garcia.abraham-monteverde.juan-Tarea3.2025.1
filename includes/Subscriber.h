@@ -15,7 +15,7 @@ class Subscriber : public Component{
 
         virtual void receiveMessage(const string& topic, const string& message) = 0;
 
-    }
+    };
 
 
 
