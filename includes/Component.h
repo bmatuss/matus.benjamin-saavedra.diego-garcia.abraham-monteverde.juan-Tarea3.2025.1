@@ -1,31 +1,19 @@
 #ifndef COMPONENT_H
 #define COMPONENT_H
+
 #include <string>
-using namespace std;
-
-
 
 class Component{
     protected:
-        string name;
-
-
+        std::string name;
 
     public:
         //constructor
-        Component(string name) : name(name) {}
+        Component(const std::string& name);
         //virtual destructor
         virtual ~Component()=default;
 
         //getters 
-        string getName() const {
-            return name;
-        }
+        std::string getName() const;
 };
-
-
-
-
-
-
 #endif // COMPONENT_H

@@ -5,11 +5,7 @@ using namespace std;
 
 
 Recorder::Recorder(const std::string& name, const string& filename)
-    : Subscriber(name), file(filename, ios::out | ios::app) {
-    if (file.is_open()) {
-        file << "Topic,Message\n";  // Cabecera del CSV
-    }
-}
+    : Subscriber(name), file(filename, ios::out | ios::app) {}
 
 Recorder::~Recorder() {
     if (file.is_open()) {

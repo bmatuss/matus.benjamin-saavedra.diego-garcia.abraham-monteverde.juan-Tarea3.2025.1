@@ -3,25 +3,18 @@
 #include <fstream>
 #include <Subscriber.h>
 #include <string>
-using namespace std;
+
 class Recorder : public Subscriber{
-
     public:
-
-        Recorder (const string& name, const string& fileName );
+        Recorder (const std::string& name, const std::string& fileName );
         ~Recorder();
 
-
-        virtual void receiveMessage(const string& topic, const string& message) override;
-
-
+        void receiveMessage(const std::string& topic, const std::string& message) override;
 
     private:
-        ofstream file; 
-
-    
-
-
+        // std::ofstream must be used if 'using namespace std;' is removed
+        // and fstream is included.
+        std::ofstream file;
 };
 
 #endif // RECORDER_H

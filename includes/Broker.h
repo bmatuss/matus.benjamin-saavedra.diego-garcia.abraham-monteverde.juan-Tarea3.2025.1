@@ -1,31 +1,16 @@
 #ifndef BROKER_H
 #define BROKER_H
-#include <Subscriber.h>
+
+#include <string>
 #include <map>
 #include <vector>
-using namespace std;
-
+#include <Subscriber.h> 
 
 class Broker{
     public:
-        void subscribe(const string& topic, Subscriber* subscriber ){
-            topics[topic].push_back(subscriber);
-
-        }
-
-        void publish(const string& topic , const string& message){
-            for(Subscriber* sub : topics[topic]) {
-                sub->receiveMessage(topic, message);
-            }
-        }
-
-
+        void subscribe(const std::string& topic, Subscriber* subscriber);
+        void publish(const std::string& topic , const std::string& message);
     private:
-        map<string, vector<Subscriber*>> topics; 
-
+        std::map<std::string, std::vector<Subscriber*>> topics;
 };
-
-
-
-
 #endif // BROKER_H
