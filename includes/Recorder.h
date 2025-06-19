@@ -12,8 +12,6 @@ class Recorder : public Subscriber{
         void receiveMessage(const std::string& topic, const std::string& message) override;
 
     private:
-        // std::ofstream must be used if 'using namespace std;' is removed
-        // and fstream is included.
         std::ofstream file;
 };
 

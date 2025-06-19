@@ -1,26 +1,20 @@
 #ifndef PUBLISHER_H
 #define PUBLISHER_H
-#include <Broker.h>
 
+#include <string> 
+#include <Broker.h>
 
 
 class Publisher {
     public:
-        Publisher(const string& name, Broker* broker) 
-            : name(name), broker(broker) {};
+        Publisher(const std::string& name, Broker* broker);
 
-        void publish(const string& topic , const string& message){
-            broker->publish(topic, message);
-        }
-
-        string getName() const {
-            return name;
-        }
+        void publish(const std::string& topic , const std::string& message);
+        std::string getName() const;
 
     private:
-        string name;
+        std::string name;
         Broker* broker; //puntero al broker , solo usa
-
     };
 
 #endif // PUBLISHER_H

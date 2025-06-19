@@ -4,7 +4,7 @@ using namespace std;
 
 
 
-Recorder::Recorder(const std::string& name, const string& filename)
+Recorder::Recorder(const std::string& name, const std::string& filename)
     : Subscriber(name), file(filename, ios::out | ios::app) {}
 
 Recorder::~Recorder() {
