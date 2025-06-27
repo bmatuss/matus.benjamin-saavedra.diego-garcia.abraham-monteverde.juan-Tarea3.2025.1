@@ -14,7 +14,7 @@ class Publisher {
 
     private:
         std::string name;
-        Broker* broker; //puntero al broker , solo usa
+        Broker* broker;
     };
 
 #endif // PUBLISHER_H

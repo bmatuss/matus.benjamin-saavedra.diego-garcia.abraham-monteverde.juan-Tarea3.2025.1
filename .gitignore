@@ -20,7 +20,10 @@
 *.out
 *.app
 
-# Qt build directories
+# Build directories
+# The /build/ entry is crucial for out-of-source CMake builds.
+# Use 'build/' without a leading slash to ignore any directory named 'build'
+build/
 build-*/
 debug/
 release/
