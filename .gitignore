@@ -51,7 +51,7 @@ qrc_*.cpp
 CMakeFiles/
 CMakeCache.txt
 cmake_install.cmake
-Makefile
+
 
 # Other generated files
 *.log
