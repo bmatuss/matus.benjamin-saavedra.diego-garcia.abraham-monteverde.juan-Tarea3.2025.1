@@ -14,10 +14,10 @@ EQ            = =
 
 CC            = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang
 CXX           = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++
-DEFINES       = -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
+DEFINES       = -DQT_NO_DEBUG -DQT_MULTIMEDIAWIDGETS_LIB -DQT_WIDGETS_LIB -DQT_MULTIMEDIA_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -O2 $(EXPORT_ARCH_ARGS) -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -mmacosx-version-min=14.0 -Wall -Wextra $(DEFINES)
 CXXFLAGS      = -pipe -stdlib=libc++ -O2 -std=gnu++1z $(EXPORT_ARCH_ARGS) -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -mmacosx-version-min=14.0 -Wall -Wextra $(DEFINES)
-INCPATH       = -I. -Iincludes -I/opt/homebrew/lib/QtWidgets.framework/Headers -I/opt/homebrew/lib/QtGui.framework/Headers -I/opt/homebrew/lib/QtCore.framework/Headers -Ibuild/moc -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk/System/Library/Frameworks/OpenGL.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk/System/Library/Frameworks/AGL.framework/Headers -Ibuild/ui -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk/System/Library/Frameworks/OpenGL.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk/System/Library/Frameworks/AGL.framework/Headers -I/opt/homebrew/share/qt/mkspecs/macx-clang -F/opt/homebrew/lib
+INCPATH       = -I. -Iincludes -I/opt/homebrew/lib/QtMultimediaWidgets.framework/Headers -I/opt/homebrew/lib/QtWidgets.framework/Headers -I/opt/homebrew/lib/QtMultimedia.framework/Headers -I/opt/homebrew/lib/QtGui.framework/Headers -I/opt/homebrew/lib/QtNetwork.framework/Headers -I/opt/homebrew/lib/QtCore.framework/Headers -Ibuild/moc -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk/System/Library/Frameworks/OpenGL.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk/System/Library/Frameworks/AGL.framework/Headers -Ibuild/ui -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk/System/Library/Frameworks/OpenGL.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk/System/Library/Frameworks/AGL.framework/Headers -I/opt/homebrew/share/qt/mkspecs/macx-clang -F/opt/homebrew/lib
 QMAKE         = /opt/homebrew/Cellar/qt/6.9.1/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -40,7 +40,7 @@ DISTNAME      = simulador1.0.0
 DISTDIR = /Users/bmatus/Documents/GitHub/matus.benjamin-saavedra.diego-garcia.abraham-monteverde.juan-Tarea3.2025.1/build/obj/simulador1.0.0
 LINK          = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++
 LFLAGS        = -stdlib=libc++ -headerpad_max_install_names $(EXPORT_ARCH_ARGS) -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -mmacosx-version-min=14.0 -Wl,-rpath,@executable_path/../Frameworks -Wl,-rpath,/opt/homebrew/lib
-LIBS          = $(SUBLIBS) -F/opt/homebrew/lib -framework QtWidgets -framework QtGui -framework AppKit -framework ImageIO -framework Metal -framework QtCore -framework IOKit -framework DiskArbitration -framework UniformTypeIdentifiers -framework AGL -framework OpenGL   
+LIBS          = $(SUBLIBS) -F/opt/homebrew/lib -framework QtMultimediaWidgets -framework QtWidgets -framework QtMultimedia -framework QtGui -framework AppKit -framework ImageIO -framework Metal -framework QtNetwork -framework QtCore -framework IOKit -framework DiskArbitration -framework UniformTypeIdentifiers -framework AGL -framework OpenGL   
 AR            = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar cq
 RANLIB        = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib -s
 SED           = sed
@@ -859,8 +859,11 @@ Makefile: simulador.pro /opt/homebrew/share/qt/mkspecs/macx-clang/qmake.conf /op
 		/opt/homebrew/share/qt/mkspecs/features/yacc.prf \
 		/opt/homebrew/share/qt/mkspecs/features/lex.prf \
 		simulador.pro \
+		/opt/homebrew/lib/QtMultimediaWidgets.framework/Resources/QtMultimediaWidgets.prl \
 		/opt/homebrew/lib/QtWidgets.framework/Resources/QtWidgets.prl \
+		/opt/homebrew/lib/QtMultimedia.framework/Resources/QtMultimedia.prl \
 		/opt/homebrew/lib/QtGui.framework/Resources/QtGui.prl \
+		/opt/homebrew/lib/QtNetwork.framework/Resources/QtNetwork.prl \
 		/opt/homebrew/lib/QtCore.framework/Resources/QtCore.prl
 	$(QMAKE) -o Makefile simulador.pro -spec macx-clang
 /opt/homebrew/share/qt/mkspecs/features/spec_pre.prf:
@@ -1236,8 +1239,11 @@ Makefile: simulador.pro /opt/homebrew/share/qt/mkspecs/macx-clang/qmake.conf /op
 /opt/homebrew/share/qt/mkspecs/features/yacc.prf:
 /opt/homebrew/share/qt/mkspecs/features/lex.prf:
 simulador.pro:
+/opt/homebrew/lib/QtMultimediaWidgets.framework/Resources/QtMultimediaWidgets.prl:
 /opt/homebrew/lib/QtWidgets.framework/Resources/QtWidgets.prl:
+/opt/homebrew/lib/QtMultimedia.framework/Resources/QtMultimedia.prl:
 /opt/homebrew/lib/QtGui.framework/Resources/QtGui.prl:
+/opt/homebrew/lib/QtNetwork.framework/Resources/QtNetwork.prl:
 /opt/homebrew/lib/QtCore.framework/Resources/QtCore.prl:
 qmake: FORCE
 	@$(QMAKE) -o Makefile simulador.pro -spec macx-clang
@@ -1307,9 +1313,17 @@ compiler_moc_header_clean:
 build/moc/moc_mainwindow.cpp: src/simulador/mainwindow.h \
 		/opt/homebrew/lib/QtWidgets.framework/Headers/QMainWindow \
 		/opt/homebrew/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		/opt/homebrew/lib/QtMultimedia.framework/Headers/QMediaPlayer \
+		/opt/homebrew/lib/QtMultimedia.framework/Headers/qmediaplayer.h \
+		/opt/homebrew/lib/QtMultimediaWidgets.framework/Headers/QVideoWidget \
+		/opt/homebrew/lib/QtMultimediaWidgets.framework/Headers/qvideowidget.h \
+		/opt/homebrew/lib/QtMultimedia.framework/Headers/QAudioOutput \
+		/opt/homebrew/lib/QtMultimedia.framework/Headers/qaudiooutput.h \
+		/opt/homebrew/lib/QtWidgets.framework/Headers/QPushButton \
+		/opt/homebrew/lib/QtWidgets.framework/Headers/qpushbutton.h \
 		build/moc/moc_predefs.h \
 		/opt/homebrew/share/qt/libexec/moc
-	/opt/homebrew/share/qt/libexec/moc $(DEFINES) --include /Users/bmatus/Documents/GitHub/matus.benjamin-saavedra.diego-garcia.abraham-monteverde.juan-Tarea3.2025.1/build/moc/moc_predefs.h -I/opt/homebrew/share/qt/mkspecs/macx-clang -I/Users/bmatus/Documents/GitHub/matus.benjamin-saavedra.diego-garcia.abraham-monteverde.juan-Tarea3.2025.1 -I/Users/bmatus/Documents/GitHub/matus.benjamin-saavedra.diego-garcia.abraham-monteverde.juan-Tarea3.2025.1/includes -I/opt/homebrew/lib/QtWidgets.framework/Headers -I/opt/homebrew/lib/QtGui.framework/Headers -I/opt/homebrew/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/17/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/opt/homebrew/lib src/simulador/mainwindow.h -o build/moc/moc_mainwindow.cpp
+	/opt/homebrew/share/qt/libexec/moc $(DEFINES) --include /Users/bmatus/Documents/GitHub/matus.benjamin-saavedra.diego-garcia.abraham-monteverde.juan-Tarea3.2025.1/build/moc/moc_predefs.h -I/opt/homebrew/share/qt/mkspecs/macx-clang -I/Users/bmatus/Documents/GitHub/matus.benjamin-saavedra.diego-garcia.abraham-monteverde.juan-Tarea3.2025.1 -I/Users/bmatus/Documents/GitHub/matus.benjamin-saavedra.diego-garcia.abraham-monteverde.juan-Tarea3.2025.1/includes -I/opt/homebrew/lib/QtMultimediaWidgets.framework/Headers -I/opt/homebrew/lib/QtWidgets.framework/Headers -I/opt/homebrew/lib/QtMultimedia.framework/Headers -I/opt/homebrew/lib/QtGui.framework/Headers -I/opt/homebrew/lib/QtNetwork.framework/Headers -I/opt/homebrew/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/17/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/opt/homebrew/lib src/simulador/mainwindow.h -o build/moc/moc_mainwindow.cpp
 
 build/moc/moc_VideoFollower.cpp: includes/VideoFollower.h \
 		/opt/homebrew/lib/QtCore.framework/Headers/QObject \
@@ -1318,7 +1332,7 @@ build/moc/moc_VideoFollower.cpp: includes/VideoFollower.h \
 		includes/Component.h \
 		build/moc/moc_predefs.h \
 		/opt/homebrew/share/qt/libexec/moc
-	/opt/homebrew/share/qt/libexec/moc $(DEFINES) --include /Users/bmatus/Documents/GitHub/matus.benjamin-saavedra.diego-garcia.abraham-monteverde.juan-Tarea3.2025.1/build/moc/moc_predefs.h -I/opt/homebrew/share/qt/mkspecs/macx-clang -I/Users/bmatus/Documents/GitHub/matus.benjamin-saavedra.diego-garcia.abraham-monteverde.juan-Tarea3.2025.1 -I/Users/bmatus/Documents/GitHub/matus.benjamin-saavedra.diego-garcia.abraham-monteverde.juan-Tarea3.2025.1/includes -I/opt/homebrew/lib/QtWidgets.framework/Headers -I/opt/homebrew/lib/QtGui.framework/Headers -I/opt/homebrew/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/17/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/opt/homebrew/lib includes/VideoFollower.h -o build/moc/moc_VideoFollower.cpp
+	/opt/homebrew/share/qt/libexec/moc $(DEFINES) --include /Users/bmatus/Documents/GitHub/matus.benjamin-saavedra.diego-garcia.abraham-monteverde.juan-Tarea3.2025.1/build/moc/moc_predefs.h -I/opt/homebrew/share/qt/mkspecs/macx-clang -I/Users/bmatus/Documents/GitHub/matus.benjamin-saavedra.diego-garcia.abraham-monteverde.juan-Tarea3.2025.1 -I/Users/bmatus/Documents/GitHub/matus.benjamin-saavedra.diego-garcia.abraham-monteverde.juan-Tarea3.2025.1/includes -I/opt/homebrew/lib/QtMultimediaWidgets.framework/Headers -I/opt/homebrew/lib/QtWidgets.framework/Headers -I/opt/homebrew/lib/QtMultimedia.framework/Headers -I/opt/homebrew/lib/QtGui.framework/Headers -I/opt/homebrew/lib/QtNetwork.framework/Headers -I/opt/homebrew/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/17/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/opt/homebrew/lib includes/VideoFollower.h -o build/moc/moc_VideoFollower.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -1346,6 +1360,14 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_ui
 build/obj/main.o: src/simulador/main.cpp src/simulador/mainwindow.h \
 		/opt/homebrew/lib/QtWidgets.framework/Headers/QMainWindow \
 		/opt/homebrew/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		/opt/homebrew/lib/QtMultimedia.framework/Headers/QMediaPlayer \
+		/opt/homebrew/lib/QtMultimedia.framework/Headers/qmediaplayer.h \
+		/opt/homebrew/lib/QtMultimediaWidgets.framework/Headers/QVideoWidget \
+		/opt/homebrew/lib/QtMultimediaWidgets.framework/Headers/qvideowidget.h \
+		/opt/homebrew/lib/QtMultimedia.framework/Headers/QAudioOutput \
+		/opt/homebrew/lib/QtMultimedia.framework/Headers/qaudiooutput.h \
+		/opt/homebrew/lib/QtWidgets.framework/Headers/QPushButton \
+		/opt/homebrew/lib/QtWidgets.framework/Headers/qpushbutton.h \
 		/opt/homebrew/lib/QtWidgets.framework/Headers/QApplication \
 		/opt/homebrew/lib/QtWidgets.framework/Headers/qapplication.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/main.o src/simulador/main.cpp
@@ -1353,9 +1375,19 @@ build/obj/main.o: src/simulador/main.cpp src/simulador/mainwindow.h \
 build/obj/mainwindow.o: src/simulador/mainwindow.cpp src/simulador/mainwindow.h \
 		/opt/homebrew/lib/QtWidgets.framework/Headers/QMainWindow \
 		/opt/homebrew/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		/opt/homebrew/lib/QtMultimedia.framework/Headers/QMediaPlayer \
+		/opt/homebrew/lib/QtMultimedia.framework/Headers/qmediaplayer.h \
+		/opt/homebrew/lib/QtMultimediaWidgets.framework/Headers/QVideoWidget \
+		/opt/homebrew/lib/QtMultimediaWidgets.framework/Headers/qvideowidget.h \
+		/opt/homebrew/lib/QtMultimedia.framework/Headers/QAudioOutput \
+		/opt/homebrew/lib/QtMultimedia.framework/Headers/qaudiooutput.h \
+		/opt/homebrew/lib/QtWidgets.framework/Headers/QPushButton \
+		/opt/homebrew/lib/QtWidgets.framework/Headers/qpushbutton.h \
 		build/ui/ui_mainwindow.h \
 		/opt/homebrew/lib/QtCore.framework/Headers/QString \
 		/opt/homebrew/lib/QtCore.framework/Headers/qstring.h \
+		/opt/homebrew/lib/QtCore.framework/Headers/QUrl \
+		/opt/homebrew/lib/QtCore.framework/Headers/qurl.h \
 		includes/Broker.h \
 		includes/Subscriber.h \
 		includes/Component.h \
