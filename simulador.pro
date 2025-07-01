@@ -11,15 +11,18 @@ INCLUDEPATH += includes
 # Archivos fuente de la aplicación principal
 SOURCES += \
     src/simulador/main.cpp \
-    src/simulador/mainwindow.cpp
+    src/simulador/mainwindow.cpp \
+    src/StartDialog.cpp
 
 # Archivos header de la aplicación principal
 HEADERS += \
-    src/simulador/mainwindow.h
+    src/simulador/mainwindow.h \
+    includes/StartDialog.h
 
 # Archivos UI
 FORMS += \
-    src/simulador/mainwindow.ui
+    src/simulador/mainwindow.ui \
+    src/simulador/StartDialog.ui
 
 # Archivos fuente de la biblioteca pubsub_core
 SOURCES += \
