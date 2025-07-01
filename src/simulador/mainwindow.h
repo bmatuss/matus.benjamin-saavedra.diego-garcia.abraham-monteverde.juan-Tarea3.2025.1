@@ -4,6 +4,7 @@
 #include <QMediaPlayer>
 #include <QVideoWidget>
 #include <QAudioOutput>
+#include <QSlider>
 
 class Broker;
 class VideoPublisher;
@@ -36,4 +37,5 @@ private:
     QMediaPlayer *mediaPlayer;
     QVideoWidget *videoWidget;
     QAudioOutput *audioOutput;
+    QSlider *volumeSlider;
 };

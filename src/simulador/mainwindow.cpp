@@ -27,19 +27,24 @@ MainWindow::MainWindow(QWidget *parent)
     videoWidget = new QVideoWidget(this);
     mediaPlayer = new QMediaPlayer(this);
     audioOutput = new QAudioOutput(this);
-    
     audioOutput->setVolume(0.8);
-    
     mediaPlayer->setAudioOutput(audioOutput);
     mediaPlayer->setVideoOutput(videoWidget);
-    
-    videoWidget->setGeometry(50, 100, 700, 400);
+    videoWidget->setGeometry(50, 100, 650, 400);
     videoWidget->setStyleSheet("border: 2px solid gray; background-color: black;");
     videoWidget->hide();
-    
     connect(mediaPlayer, &QMediaPlayer::mediaStatusChanged, this, &MainWindow::onMediaStatusChanged);
-    
     videoWidget->raise();
+
+    // volumwen (extra)
+    volumeSlider = new QSlider(Qt::Vertical, this);
+    volumeSlider->setGeometry(710, 100, 30, 400);
+    volumeSlider->setRange(0, 100);
+    volumeSlider->setValue(80);
+    volumeSlider->show();
+    connect(volumeSlider, &QSlider::valueChanged, this, [this](int value) {
+        audioOutput->setVolume(value / 100.0);
+    });
 }
 
 MainWindow::~MainWindow()
