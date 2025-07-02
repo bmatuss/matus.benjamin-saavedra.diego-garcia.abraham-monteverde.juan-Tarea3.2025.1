@@ -26,21 +26,27 @@ SOURCES += \
     src/Broker.cpp \
     src/Component.cpp \
     src/Follower.cpp \
+    src/GPSCarFollower.cpp \
+    src/GPSCarPublisher.cpp \
     src/Publisher.cpp \
     src/Recorder.cpp \
     src/VideoPublisher.cpp \
-    src/VideoFollower.cpp
+    src/VideoFollower.cpp \
+    src/GPSMovementView.cpp
 
 # Archivos header de la biblioteca pubsub_core
 HEADERS += \
     includes/Broker.h \
     includes/Component.h \
     includes/Follower.h \
+    includes/GPSCarFollower.h \
+    includes/GPSCarPublisher.h \
     includes/Publisher.h \
     includes/Recorder.h \
     includes/Subscriber.h \
     includes/VideoFollower.h \
-    includes/VideoPublisher.h
+    includes/VideoPublisher.h \
+    includes/GPSMovementView.h
 
 # Configuración específica para macOS
 macx {

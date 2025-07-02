@@ -8,12 +8,8 @@ class Component{
         std::string name;
 
     public:
-        //constructor
         Component(const std::string& name);
-        //virtual destructor
-        virtual ~Component()=default;
-
-        //getters 
+        virtual ~Component() = default;
         std::string getName() const;
 };
 #endif // COMPONENT_H

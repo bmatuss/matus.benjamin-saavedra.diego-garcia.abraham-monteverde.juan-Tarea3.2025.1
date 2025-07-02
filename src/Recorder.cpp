@@ -1,10 +1,9 @@
 #include "Recorder.h"
-using namespace std;
 #include <sstream>
 
+using namespace std;
 
-
-Recorder::Recorder(const std::string& name, const std::string& filename)
+Recorder::Recorder(const string& name, const string& filename)
     : Subscriber(name), file(filename, ios::out | ios::app) {}
 
 Recorder::~Recorder() {
@@ -13,8 +12,7 @@ Recorder::~Recorder() {
     }
 }
 
-void Recorder::receiveMessage(const std::string& topic, const std::string& message) {
- 
+void Recorder::receiveMessage(const string& topic, const string& message) {
     string x_str, y_str;
     int x = 0, y = 0;
 

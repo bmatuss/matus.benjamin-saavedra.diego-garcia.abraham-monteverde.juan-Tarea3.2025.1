@@ -24,32 +24,6 @@
      </rect>
     </property>
    </widget>
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>40</y>
-      <width>101</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>TextLabel</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_2">
-    <property name="geometry">
-     <rect>
-      <x>430</x>
-      <y>30</y>
-      <width>91</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>TextLabel</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
@@ -70,11 +44,47 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>24</height>
+     <height>22</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuPublisher">
+    <property name="title">
+     <string>Publisher</string>
+    </property>
+    <addaction name="actionVideo"/>
+    <addaction name="actionCarGPS"/>
+   </widget>
+   <widget class="QMenu" name="menuSuscriber">
+    <property name="title">
+     <string>Suscriber</string>
+    </property>
+    <addaction name="actionVideo_2"/>
+    <addaction name="actionCarGPS_2"/>
+   </widget>
+   <addaction name="menuPublisher"/>
+   <addaction name="menuSuscriber"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionVideo">
+   <property name="text">
+    <string>Video</string>
+   </property>
+  </action>
+  <action name="actionCarGPS">
+   <property name="text">
+    <string>CarGPS</string>
+   </property>
+  </action>
+  <action name="actionVideo_2">
+   <property name="text">
+    <string>Video</string>
+   </property>
+  </action>
+  <action name="actionCarGPS_2">
+   <property name="text">
+    <string>CarGPS</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>
