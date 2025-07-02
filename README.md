@@ -36,7 +36,7 @@ Y sus respectivos suscriptores, los cuales reaccionan a las publicaciones con el
 - El **publicador de video** permite ingresar URLs mediante un campo de texto.
 - El **suscriptor de video** muestra un botón que se actualiza con la última URL publicada.
 - Al presionar el botón, el video se reproduce en una nueva ventana.
-- **🔊 Control de Volumen:** Se implementó una funcionalidad extra para manejar el volumen del video mediante controles deslizantes.
+- **🔊 Control de Volumen:** Se implementó la funcionalidad extra para manejar el volumen del video mediante controles deslizantes.
 
 ### ✅ Publicador y Suscriptor de GPS
 
